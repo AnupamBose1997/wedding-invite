@@ -256,6 +256,26 @@ export default defineType({
           })
         }),
         defineField({
+          name: 'titleFont',
+          title: '✍️ Names Font Style',
+          type: 'string',
+          description: 'Choose the font for the couple names display in the hero section',
+          options: {
+            list: [
+              {title: '💃 Dancing Script (Romantic Script)', value: 'Dancing Script'},
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '📖 Lora (Easy to Read)', value: 'Lora'},
+              {title: '🧹 Open Sans (Clean & Modern)', value: 'Open Sans'},
+              {title: '🔥 Montserrat (Professional)', value: 'Montserrat'},
+              {title: '📜 Crimson Text (Traditional)', value: 'Crimson Text'},
+              {title: '💼 Source Sans Pro (Business Style)', value: 'Source Sans Pro'},
+              {title: '🎭 Great Vibes (Elegant Script)', value: 'Great Vibes'},
+              {title: '🌸 Pacifico (Fun & Friendly)', value: 'Pacifico'}
+            ]
+          },
+          initialValue: 'Dancing Script'
+        }),
+        defineField({
           name: 'subtitle',
           title: 'Subtitle',
           type: 'string',

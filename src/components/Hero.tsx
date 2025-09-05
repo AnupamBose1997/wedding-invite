@@ -105,9 +105,10 @@ export default function Hero({ hero }: HeroProps) {
           className="w-full"
         >
           <motion.h1 
-            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-elegant mb-3 sm:mb-4 md:mb-6 leading-tight tracking-wide break-words"
+            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-3 sm:mb-4 md:mb-6 leading-tight tracking-wide break-words"
             style={{ 
               color: textColor,
+              fontFamily: hero.titleFont || 'Dancing Script',
               wordBreak: 'break-word',
               hyphens: 'auto'
             }}

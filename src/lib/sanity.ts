@@ -59,6 +59,7 @@ export const queries = {
       firstName,
       secondName,
       customTitle,
+      titleFont,
       subtitle,
       backgroundType,
       backgroundImage,

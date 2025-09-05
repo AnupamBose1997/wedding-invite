@@ -27,6 +27,7 @@ const defaultData: WeddingData = {
     titleStyle: 'ampersand' as const,
     firstName: 'Anupam',
     secondName: 'Aastha',
+    titleFont: 'Dancing Script',
     subtitle: 'We\'re getting married!',
     backgroundType: 'image' as const,
     backgroundImage: null,
@@ -150,5 +151,5 @@ export default async function Home() {
   )
 }
 
-// Enable ISR (Incremental Static Regeneration)
-export const revalidate = 60
+// Enable ISR (Incremental Static Regeneration) - revalidate every 30 seconds
+export const revalidate = 30

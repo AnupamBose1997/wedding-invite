@@ -64,6 +64,7 @@ export interface Hero {
   firstName?: string
   secondName?: string
   customTitle?: string
+  titleFont?: string
   subtitle: string
   backgroundType: 'image' | 'video'
   backgroundImage?: SanityImage | null
