@@ -64,6 +64,26 @@
     height: auto;
     object-fit: cover;
   }
+  
+  /* Mobile-optimized iframe styles */
+  iframe {
+    max-width: 100%;
+    border: none !important;
+    outline: none !important;
+  }
+  
+  /* Google Forms mobile optimization */
+  iframe[src*="docs.google.com/forms"] {
+    width: 100% !important;
+    min-height: 500px !important;
+    background: transparent;
+  }
+  
+  /* Prevent iframe content from overflowing */
+  .iframe-container {
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
 }
 
 @keyframes fadeIn {

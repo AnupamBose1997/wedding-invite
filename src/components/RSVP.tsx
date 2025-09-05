@@ -64,33 +64,39 @@ const GoogleForm = ({ formId }: { formId: string }) => {
   }
   
   return (
-    <div className="w-full">
-      <iframe
-        src={embedUrl}
-        width="100%"
-        height="600"
-        frameBorder="0"
-        marginHeight={0}
-        marginWidth={0}
-        className="rounded-lg min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]"
-        title="RSVP Form"
-        sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
-        loading="lazy"
-        style={{ height: 'clamp(400px, 60vh, 700px)' }}
-      >
-        Loading RSVP form...
-      </iframe>
+    <div className="w-full overflow-hidden">
+      {/* Mobile-optimized iframe container */}
+      <div className="relative w-full" style={{ paddingBottom: '120%' }}>
+        <iframe
+          src={embedUrl}
+          className="absolute top-0 left-0 w-full h-full rounded-lg border-0"
+          title="RSVP Form"
+          sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-top-navigation"
+          loading="lazy"
+          style={{
+            minHeight: '500px',
+            height: '100%',
+            border: 'none',
+            outline: 'none'
+          }}
+        >
+          Loading RSVP form...
+        </iframe>
+      </div>
       
-      {/* Fallback link if iframe doesn't work */}
-      <div className="text-center mt-4">
+      {/* Mobile-friendly fallback link */}
+      <div className="text-center mt-4 px-2">
         <a 
           href={embedUrl.replace('?embedded=true', '').replace('&embedded=true', '')}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary-100 hover:text-white underline text-sm sm:text-base"
+          className="inline-block bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-full text-sm sm:text-base transition-all duration-300 backdrop-blur-sm"
         >
-          Can't see the form? Click here to open it in a new window →
+          📱 Open Form in New Tab
         </a>
+        <p className="text-xs sm:text-sm text-primary-200 mt-2">
+          Having trouble? Try opening the form in a new tab
+        </p>
       </div>
     </div>
   )
@@ -98,13 +104,19 @@ const GoogleForm = ({ formId }: { formId: string }) => {
 
 const TypeformEmbed = ({ typeformId }: { typeformId: string }) => {
   return (
-    <iframe
-      src={`https://${typeformId}.typeform.com/to/${typeformId}`}
-      width="100%"
-      height="600"
-      frameBorder="0"
-      className="rounded-lg"
-    />
+    <div className="w-full overflow-hidden">
+      <div className="relative w-full" style={{ paddingBottom: '100%' }}>
+        <iframe
+          src={`https://${typeformId}.typeform.com/to/${typeformId}`}
+          className="absolute top-0 left-0 w-full h-full rounded-lg border-0"
+          title="RSVP Typeform"
+          style={{
+            minHeight: '500px',
+            border: 'none'
+          }}
+        />
+      </div>
+    </div>
   )
 }
 
@@ -149,9 +161,9 @@ export default function RSVP({ rsvp }: RSVPProps) {
               We can't wait to celebrate with you! Please let us know if you'll be joining us.
             </p>
             
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-2xl mx-auto">
               <motion.button
-                className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg touch-manipulation"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => rsvp.contactInfo?.email && (window.location.href = `mailto:${rsvp.contactInfo.email}?subject=RSVP - Yes!&body=We're excited to celebrate with you!`)}
@@ -160,7 +172,7 @@ export default function RSVP({ rsvp }: RSVPProps) {
               </motion.button>
               
               <motion.button
-                className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg touch-manipulation"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => rsvp.contactInfo?.email && (window.location.href = `mailto:${rsvp.contactInfo.email}?subject=RSVP - Can't Make It&body=Sorry, we won't be able to attend.`)}
@@ -170,9 +182,9 @@ export default function RSVP({ rsvp }: RSVPProps) {
             </div>
             
             {rsvp.contactInfo && (
-              <div className="text-sm text-primary-200 mt-6 space-y-2">
+              <div className="text-xs sm:text-sm text-primary-200 mt-6 space-y-2 max-w-md mx-auto">
                 {rsvp.contactInfo.email && (
-                  <p>Email: <a href={`mailto:${rsvp.contactInfo.email}`} className="underline hover:text-white">{rsvp.contactInfo.email}</a></p>
+                  <p className="break-all">Email: <a href={`mailto:${rsvp.contactInfo.email}`} className="underline hover:text-white">{rsvp.contactInfo.email}</a></p>
                 )}
                 {rsvp.contactInfo.phone && (
                   <p>Phone: <a href={`tel:${rsvp.contactInfo.phone}`} className="underline hover:text-white">{rsvp.contactInfo.phone}</a></p>
@@ -192,7 +204,7 @@ export default function RSVP({ rsvp }: RSVPProps) {
 
   return (
     <section id="rsvp" className="py-16 sm:py-20 text-white" style={sectionStyle}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-full">
         <motion.div
           className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 50 }}
@@ -226,7 +238,7 @@ export default function RSVP({ rsvp }: RSVPProps) {
           )}
 
           <motion.div
-            className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 shadow-2xl"
+            className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 lg:p-8 shadow-2xl overflow-hidden"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
