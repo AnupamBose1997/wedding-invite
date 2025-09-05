@@ -11,8 +11,8 @@ interface StoryProps {
 
 export default function Story({ story }: StoryProps) {
   return (
-    <section id="story" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="story" className="py-16 sm:py-20 bg-white">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-full">
         <motion.h2 
           className="section-title"
           initial={{ opacity: 0, y: 50 }}

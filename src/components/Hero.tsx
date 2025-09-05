@@ -37,7 +37,7 @@ export default function Hero({ hero }: HeroProps) {
   }
   
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen h-screen flex items-center justify-center overflow-hidden w-full">
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
         {hero.backgroundType === 'video' && hero.backgroundVideo ? (
@@ -87,15 +87,20 @@ export default function Hero({ hero }: HeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto" style={{ color: textColor }}>
+      <div className="relative z-10 text-center w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8" style={{ color: textColor }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
+          className="w-full"
         >
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-elegant mb-4 sm:mb-6 leading-tight tracking-wide"
-            style={{ color: textColor }}
+            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-elegant mb-3 sm:mb-4 md:mb-6 leading-tight tracking-wide break-words"
+            style={{ 
+              color: textColor,
+              wordBreak: 'break-word',
+              hyphens: 'auto'
+            }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}
@@ -104,7 +109,7 @@ export default function Hero({ hero }: HeroProps) {
           </motion.h1>
           
           <motion.p 
-            className="text-lg sm:text-xl md:text-2xl font-elegant mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-base xs:text-lg sm:text-xl md:text-2xl font-elegant mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed px-2"
             style={{ color: textColor, opacity: 0.9 }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 0.9, y: 0 }}

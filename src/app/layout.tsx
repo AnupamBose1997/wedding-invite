@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description: 'Join us as we celebrate our special day! Wedding invitation with all the details you need.',
   keywords: ['wedding', 'invitation', 'celebration', 'love', 'marriage'],
   authors: [{ name: 'Anupam & Aastha' }],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
   openGraph: {
     title: 'Anupam ❤️ Aastha - Wedding Invitation',
     description: 'Join us as we celebrate our special day!',

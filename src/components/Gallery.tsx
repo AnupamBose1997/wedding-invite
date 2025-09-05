@@ -14,8 +14,8 @@ export default function Gallery({ gallery }: GalleryProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-br from-pink-50 to-gold-50">
-      <div className="container mx-auto px-4">
+    <section id="gallery" className="py-16 sm:py-20 bg-gradient-to-br from-pink-50 to-gold-50">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-full">
         <motion.h2 
           className="section-title"
           initial={{ opacity: 0, y: 50 }}

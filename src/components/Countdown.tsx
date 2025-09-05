@@ -79,8 +79,8 @@ export default function Countdown({ targetDate, showCountdown = true }: Countdow
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-r from-primary-50 to-gold-50">
-      <div className="container mx-auto px-4">
+    <section className="py-16 sm:py-20 bg-gradient-to-r from-primary-50 to-gold-50">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-full">
         <motion.h2 
           className="section-title"
           initial={{ opacity: 0, y: 50 }}
@@ -110,21 +110,21 @@ export default function Countdown({ targetDate, showCountdown = true }: Countdow
             </div>
           </motion.div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
             {timeUnits.map((unit, index) => (
               <motion.div
                 key={unit.label}
-                className="card text-center"
+                className="card text-center min-w-0"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+                <div className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-primary-600 mb-1 sm:mb-2">
                   {unit.value.toString().padStart(2, '0')}
                 </div>
-                <div className="text-sm md:text-base font-elegant text-gray-600 uppercase tracking-wide">
+                <div className="text-xs xs:text-sm md:text-base font-elegant text-gray-600 uppercase tracking-wide">
                   {unit.label}
                 </div>
               </motion.div>
