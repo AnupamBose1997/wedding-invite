@@ -19,12 +19,9 @@ const defaultData: WeddingData = {
   },
   footer: {
     coupleNames: 'Anupam & Aastha',
-    nameColor: { hex: '#ffffff' },
     nameFont: 'Dancing Script',
     thankYouMessage: 'Thank you for being part of our journey',
-    messageColor: { hex: '#9CA3AF' },
-    copyrightText: '© 2025 Wedding Invitation',
-    copyrightColor: { hex: '#6B7280' }
+    copyrightText: '© 2025 Wedding Invitation'
   },
   hero: {
     titleStyle: 'ampersand' as const,

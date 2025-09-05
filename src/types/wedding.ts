@@ -51,12 +51,12 @@ export interface SiteSettings {
 
 export interface Footer {
   coupleNames: string
-  nameColor: SanityColor
+  nameColor?: SanityColor
   nameFont: string
   thankYouMessage: string
-  messageColor: SanityColor
+  messageColor?: SanityColor
   copyrightText: string
-  copyrightColor: SanityColor
+  copyrightColor?: SanityColor
 }
 
 export interface Hero {
