@@ -82,13 +82,15 @@ export default function Gallery({ gallery }: GalleryProps) {
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <Image
-                src={urlFor(gallery.images[selectedImage]).width(1200).height(800).url()}
-                alt={gallery.images[selectedImage].alt || `Gallery image ${selectedImage + 1}`}
-                width={1200}
-                height={800}
-                className="object-contain max-h-[80vh] w-auto rounded-lg"
-              />
+              {gallery.images && selectedImage !== null && (
+                <Image
+                  src={urlFor(gallery.images[selectedImage]).width(1200).height(800).url()}
+                  alt={gallery.images[selectedImage].alt || `Gallery image ${selectedImage + 1}`}
+                  width={1200}
+                  height={800}
+                  className="object-contain max-h-[80vh] w-auto rounded-lg"
+                />
+              )}
               
               {/* Close button */}
               <button
