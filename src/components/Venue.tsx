@@ -100,32 +100,32 @@ export default function Venue({ venue, ceremonies }: VenueProps) {
           {/* Timeline */}
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gray-200"></div>
+            <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-gray-200"></div>
             
             {timelineEvents.map((event, index) => (
               <motion.div
                 key={index}
-                className="relative flex items-start pb-16 last:pb-0"
+                className="relative flex items-start pb-12 sm:pb-16 last:pb-0"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
                 {/* Timeline dot */}
-                <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-gray-200 shadow-sm">
-                  <div className="w-3 h-3 rounded-full bg-primary-400"></div>
+                <div className="relative z-10 flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-gray-200 shadow-sm">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-primary-400"></div>
                 </div>
 
                 {/* Event card */}
-                <div className="ml-8 flex-1">
-                  <div className="grid md:grid-cols-2 gap-8 items-start">
+                <div className="ml-4 sm:ml-8 flex-1">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 items-start">
                     {/* Content */}
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-4">
                       <div>
-                        <h3 className="text-2xl font-elegant text-gray-900 mb-2">
+                        <h3 className="text-xl sm:text-2xl font-elegant text-gray-900 mb-2">
                           {event.title}
                         </h3>
-                        <div className="text-lg text-gray-600 space-y-1">
+                        <div className="text-base sm:text-lg text-gray-600 space-y-1">
                           <p className="font-medium">
                             {new Date(event.date).toLocaleDateString('en-US', {
                               weekday: 'long',
@@ -144,24 +144,24 @@ export default function Venue({ venue, ceremonies }: VenueProps) {
                       </div>
                       
                       <div className="text-gray-600">
-                        <p className="font-medium text-gray-800">{event.venue}</p>
-                        <p className="text-sm">{event.address}</p>
+                        <p className="font-medium text-gray-800 text-sm sm:text-base">{event.venue}</p>
+                        <p className="text-xs sm:text-sm">{event.address}</p>
                       </div>
                       
                       {event.description && (
-                        <p className="text-gray-600 italic">{event.description}</p>
+                        <p className="text-gray-600 italic text-sm sm:text-base">{event.description}</p>
                       )}
                     </div>
 
                     {/* Map */}
-                    <div className="order-first md:order-last">
+                    <div className="order-first lg:order-last">
                       {event.mapEmbed ? (
                         <div 
-                          className="w-full h-64 rounded-lg overflow-hidden shadow-sm border border-gray-100"
+                          className="w-full h-48 sm:h-64 rounded-lg overflow-hidden shadow-sm border border-gray-100"
                           dangerouslySetInnerHTML={{ __html: event.mapEmbed }}
                         />
                       ) : (
-                        <div className="w-full h-64 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-100">
+                        <div className="w-full h-48 sm:h-64 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-100">
                           <div className="text-center text-gray-400">
                             <svg className="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

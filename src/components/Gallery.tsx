@@ -27,16 +27,17 @@ export default function Gallery({ gallery }: GalleryProps) {
         </motion.h2>
 
         {gallery.images && gallery.images.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 max-w-7xl mx-auto">
             {gallery.images.map((image, index) => (
             <motion.div
               key={index}
-              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
+              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group touch-manipulation"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setSelectedImage(index)}
             >
               <Image
@@ -69,14 +70,14 @@ export default function Gallery({ gallery }: GalleryProps) {
         {/* Lightbox Modal */}
         {selectedImage !== null && (
           <motion.div
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-2 sm:p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
-              className="relative max-w-4xl max-h-full"
+              className="relative w-full h-full max-w-4xl flex items-center justify-center"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
@@ -88,16 +89,16 @@ export default function Gallery({ gallery }: GalleryProps) {
                   alt={gallery.images[selectedImage].alt || `Gallery image ${selectedImage + 1}`}
                   width={1200}
                   height={800}
-                  className="object-contain max-h-[80vh] w-auto rounded-lg"
+                  className="object-contain max-h-[85vh] max-w-full w-auto h-auto rounded-lg"
                 />
               )}
               
               {/* Close button */}
               <button
-                className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white bg-black/60 rounded-full p-2 sm:p-3 hover:bg-black/80 transition-colors touch-manipulation"
                 onClick={() => setSelectedImage(null)}
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
@@ -105,10 +106,10 @@ export default function Gallery({ gallery }: GalleryProps) {
               {/* Navigation arrows */}
               {selectedImage !== null && selectedImage > 0 && (
                 <button
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
+                  className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 text-white bg-black/60 rounded-full p-2 sm:p-3 hover:bg-black/80 transition-colors touch-manipulation"
                   onClick={() => setSelectedImage(selectedImage - 1)}
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
@@ -116,10 +117,10 @@ export default function Gallery({ gallery }: GalleryProps) {
               
               {gallery.images && selectedImage !== null && selectedImage < gallery.images.length - 1 && (
                 <button
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
+                  className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 text-white bg-black/60 rounded-full p-2 sm:p-3 hover:bg-black/80 transition-colors touch-manipulation"
                   onClick={() => setSelectedImage(selectedImage + 1)}
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>

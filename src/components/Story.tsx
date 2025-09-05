@@ -24,20 +24,20 @@ export default function Story({ story }: StoryProps) {
         </motion.h2>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Story Content */}
             <motion.div
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6 order-2 lg:order-1"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="prose prose-lg max-w-none">
+              <div className="prose prose-base sm:prose-lg max-w-none">
                 {story.content.split('\n').map((paragraph, index) => (
                   <motion.p
                     key={index}
-                    className="text-gray-700 leading-relaxed mb-4 text-lg"
+                    className="text-gray-700 leading-relaxed mb-3 sm:mb-4 text-base sm:text-lg"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -51,7 +51,7 @@ export default function Story({ story }: StoryProps) {
 
             {/* Story Images */}
             <motion.div
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-2 gap-2 sm:gap-4 order-1 lg:order-2"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}

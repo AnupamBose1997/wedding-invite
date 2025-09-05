@@ -87,14 +87,14 @@ export default function Hero({ hero }: HeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto" style={{ color: textColor }}>
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto" style={{ color: textColor }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.h1 
-            className="hero-text mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-elegant mb-4 sm:mb-6 leading-tight tracking-wide"
             style={{ color: textColor }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -104,7 +104,7 @@ export default function Hero({ hero }: HeroProps) {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl font-elegant mb-8"
+            className="text-lg sm:text-xl md:text-2xl font-elegant mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed"
             style={{ color: textColor, opacity: 0.9 }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 0.9, y: 0 }}
@@ -133,8 +133,8 @@ export default function Hero({ hero }: HeroProps) {
       {/* Scroll indicator */}
       {hero.showScrollIndicator && (
         <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-          animate={{ y: [0, 10, 0] }}
+          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+          animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           onClick={() => {
             const nextSection = document.querySelector('#countdown, #story, #venue')
@@ -143,27 +143,27 @@ export default function Hero({ hero }: HeroProps) {
           style={{ color: textColor }}
         >
           {hero.scrollIndicatorStyle === 'mouse' && (
-            <div className="w-6 h-10 border-2 rounded-full flex justify-center" style={{ borderColor: textColor }}>
-              <div className="w-1 h-3 rounded-full mt-2 animate-pulse" style={{ backgroundColor: textColor }} />
+            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 rounded-full flex justify-center" style={{ borderColor: textColor }}>
+              <div className="w-1 h-2 sm:h-3 rounded-full mt-1 sm:mt-2 animate-pulse" style={{ backgroundColor: textColor }} />
             </div>
           )}
           
           {hero.scrollIndicatorStyle === 'arrow' && (
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           )}
           
           {hero.scrollIndicatorStyle === 'chevron' && (
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           )}
           
           {hero.scrollIndicatorStyle === 'text' && (
             <div className="text-center">
-              <div className="text-sm font-medium mb-1">Scroll Down</div>
-              <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="text-xs sm:text-sm font-medium mb-1">Scroll Down</div>
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </div>

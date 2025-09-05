@@ -72,10 +72,11 @@ const GoogleForm = ({ formId }: { formId: string }) => {
         frameBorder="0"
         marginHeight={0}
         marginWidth={0}
-        className="rounded-lg"
+        className="rounded-lg min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]"
         title="RSVP Form"
         sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
         loading="lazy"
+        style={{ height: 'clamp(400px, 60vh, 700px)' }}
       >
         Loading RSVP form...
       </iframe>
@@ -86,7 +87,7 @@ const GoogleForm = ({ formId }: { formId: string }) => {
           href={embedUrl.replace('?embedded=true', '').replace('&embedded=true', '')}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary-100 hover:text-white underline text-sm"
+          className="text-primary-100 hover:text-white underline text-sm sm:text-base"
         >
           Can't see the form? Click here to open it in a new window →
         </a>
@@ -190,8 +191,8 @@ export default function RSVP({ rsvp }: RSVPProps) {
   }
 
   return (
-    <section id="rsvp" className="py-20 text-white" style={sectionStyle}>
-      <div className="container mx-auto px-4">
+    <section id="rsvp" className="py-16 sm:py-20 text-white" style={sectionStyle}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 50 }}
@@ -199,17 +200,17 @@ export default function RSVP({ rsvp }: RSVPProps) {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-elegant mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-elegant mb-4 sm:mb-6 text-white">
             {rsvp.title}
           </h2>
           
-          <p className="text-xl md:text-2xl mb-8 text-primary-100 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-primary-100 max-w-2xl mx-auto leading-relaxed">
             {rsvp.description}
           </p>
 
           {rsvp.deadline && (
             <motion.p 
-              className="text-lg mb-12 text-gold-200 font-medium"
+              className="text-base sm:text-lg mb-8 sm:mb-12 text-gold-200 font-medium"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -225,7 +226,7 @@ export default function RSVP({ rsvp }: RSVPProps) {
           )}
 
           <motion.div
-            className="bg-white/10 backdrop-blur-sm rounded-lg p-8 shadow-2xl"
+            className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 shadow-2xl"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
