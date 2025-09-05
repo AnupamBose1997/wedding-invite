@@ -103,7 +103,7 @@ export default function Gallery({ gallery }: GalleryProps) {
               </button>
 
               {/* Navigation arrows */}
-              {selectedImage > 0 && (
+              {selectedImage !== null && selectedImage > 0 && (
                 <button
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
                   onClick={() => setSelectedImage(selectedImage - 1)}
@@ -114,7 +114,7 @@ export default function Gallery({ gallery }: GalleryProps) {
                 </button>
               )}
               
-              {selectedImage < gallery.images.length - 1 && (
+              {gallery.images && selectedImage !== null && selectedImage < gallery.images.length - 1 && (
                 <button
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
                   onClick={() => setSelectedImage(selectedImage + 1)}
