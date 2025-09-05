@@ -49,6 +49,16 @@ export interface SiteSettings {
   customCSS?: string
 }
 
+export interface Footer {
+  coupleNames: string
+  nameColor: SanityColor
+  nameFont: string
+  thankYouMessage: string
+  messageColor: SanityColor
+  copyrightText: string
+  copyrightColor: SanityColor
+}
+
 export interface Hero {
   titleStyle: 'ampersand' | 'plus' | 'names-only' | 'custom'
   firstName?: string
@@ -127,6 +137,7 @@ export interface Story {
 export interface WeddingData {
   _id: string
   siteSettings: SiteSettings
+  footer?: Footer
   hero: Hero
   ceremonies: Ceremonies | null
   venue: Venue

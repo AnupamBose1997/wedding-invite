@@ -47,8 +47,18 @@ export default function Hero({ hero }: HeroProps) {
               muted
               loop
               playsInline
+              controls={false}
+              disablePictureInPicture
               className="absolute inset-0 w-full h-full object-cover"
               poster={hero.videoFallbackImage ? urlFor(hero.videoFallbackImage).width(1920).height(1080).url() : undefined}
+              preload="auto"
+              webkit-playsinline="true"
+              x5-playsinline="true"
+              x5-video-player-type="h5"
+              x5-video-player-fullscreen="true"
+              style={{
+                pointerEvents: 'none'
+              }}
               onError={(e) => {
                 console.log('Video failed to load:', e)
                 // Hide video element on error

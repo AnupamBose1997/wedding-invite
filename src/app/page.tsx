@@ -17,6 +17,15 @@ const defaultData: WeddingData = {
     primaryFont: 'Dancing Script',
     bodyFont: 'Playfair Display'
   },
+  footer: {
+    coupleNames: 'Anupam & Aastha',
+    nameColor: { hex: '#ffffff' },
+    nameFont: 'Dancing Script',
+    thankYouMessage: 'Thank you for being part of our journey',
+    messageColor: { hex: '#9CA3AF' },
+    copyrightText: '© 2025 Wedding Invitation',
+    copyrightColor: { hex: '#6B7280' }
+  },
   hero: {
     titleStyle: 'ampersand' as const,
     firstName: 'Anupam',
@@ -116,17 +125,26 @@ export default async function Home() {
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4 text-center">
           <div className="mb-6">
-            <h3 className="text-3xl font-script text-primary-400 mb-2">
-              Anupam ❤️ Aastha
+            <h3 
+              className="text-3xl mb-2"
+              style={{ 
+                fontFamily: data.footer?.nameFont || 'Dancing Script',
+                color: data.footer?.nameColor?.hex || '#ffffff'
+              }}
+            >
+              {data.footer?.coupleNames || 'Anupam & Aastha'}
             </h3>
-            <p className="text-gray-400">
-              Thank you for being part of our journey
+            <p style={{ color: data.footer?.messageColor?.hex || '#9CA3AF' }}>
+              {data.footer?.thankYouMessage || 'Thank you for being part of our journey'}
             </p>
           </div>
           
           <div className="border-t border-gray-700 pt-6">
-            <p className="text-sm text-gray-500">
-              © 2024 Wedding Invitation. Made with ❤️ using Next.js & Sanity CMS
+            <p 
+              className="text-sm"
+              style={{ color: data.footer?.copyrightColor?.hex || '#6B7280' }}
+            >
+              {data.footer?.copyrightText || '© 2025 Wedding Invitation'}
             </p>
           </div>
         </div>

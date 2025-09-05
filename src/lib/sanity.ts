@@ -45,6 +45,15 @@ export const queries = {
       bodyFont,
       customCSS
     },
+    footer{
+      coupleNames,
+      nameColor,
+      nameFont,
+      thankYouMessage,
+      messageColor,
+      copyrightText,
+      copyrightColor
+    },
     hero{
       titleStyle,
       firstName,

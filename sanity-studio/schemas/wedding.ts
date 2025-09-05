@@ -109,6 +109,82 @@ export default defineType({
         })
       ]
     }),
+    
+    // Footer Section
+    defineField({
+      name: 'footer',
+      title: '🦶 Footer Section',
+      type: 'object',
+      description: 'Customize the footer text, colors, and fonts at the bottom of your website',
+      fields: [
+        defineField({
+          name: 'coupleNames',
+          title: '💑 Couple Names Display',
+          type: 'string',
+          description: 'How your names appear in the footer (e.g., "Anupam & Aastha")',
+          initialValue: 'Anupam & Aastha'
+        }),
+        defineField({
+          name: 'nameColor',
+          title: '🎨 Names Color',
+          type: 'color',
+          description: 'Color for the couple names in footer',
+          options: {
+            disableAlpha: true
+          },
+          initialValue: { hex: '#ffffff' }
+        }),
+        defineField({
+          name: 'nameFont',
+          title: '✍️ Names Font',
+          type: 'string',
+          options: {
+            list: [
+              {title: '💃 Dancing Script (Romantic Script)', value: 'Dancing Script'},
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '📖 Lora (Easy to Read)', value: 'Lora'},
+              {title: '🧹 Open Sans (Clean & Modern)', value: 'Open Sans'},
+              {title: '🔥 Montserrat (Professional)', value: 'Montserrat'}
+            ]
+          },
+          initialValue: 'Dancing Script'
+        }),
+        defineField({
+          name: 'thankYouMessage',
+          title: '💝 Thank You Message',
+          type: 'string',
+          description: 'Message below the names',
+          initialValue: 'Thank you for being part of our journey'
+        }),
+        defineField({
+          name: 'messageColor',
+          title: '🎨 Message Color',
+          type: 'color',
+          description: 'Color for the thank you message',
+          options: {
+            disableAlpha: true
+          },
+          initialValue: { hex: '#9CA3AF' }
+        }),
+        defineField({
+          name: 'copyrightText',
+          title: '© Copyright Text',
+          type: 'string',
+          description: 'Copyright text at the bottom',
+          initialValue: '© 2025 Wedding Invitation'
+        }),
+        defineField({
+          name: 'copyrightColor',
+          title: '🎨 Copyright Color',
+          type: 'color',
+          description: 'Color for the copyright text',
+          options: {
+            disableAlpha: true
+          },
+          initialValue: { hex: '#6B7280' }
+        })
+      ]
+    }),
     // Hero Section
     defineField({
       name: 'hero',

@@ -34,22 +34,34 @@ const GoogleForm = ({ formId }: { formId: string }) => {
       }
       
       if (extractedId) {
-        return `https://docs.google.com/forms/d/e/${extractedId}/viewform?embedded=true`
+        return `https://docs.google.com/forms/d/e/${extractedId}/viewform?embedded=true&chrome=false&header=false`
       }
       
       // If we can't extract ID, try to use the URL as-is with embedded=true
       if (cleanInput.includes('viewform')) {
-        return cleanInput.includes('embedded=true') ? cleanInput : `${cleanInput}?embedded=true`
+        const hasParams = cleanInput.includes('?')
+        const separator = hasParams ? '&' : '?'
+        let url = cleanInput
+        if (!url.includes('embedded=true')) {
+          url += `${separator}embedded=true`
+        }
+        if (!url.includes('chrome=false')) {
+          url += '&chrome=false'
+        }
+        if (!url.includes('header=false')) {
+          url += '&header=false'
+        }
+        return url
       }
     }
     
     // If it's just an ID (starts with 1FAIpQLSe or similar)
     if (cleanInput.match(/^1[A-Za-z0-9_-]+$/)) {
-      return `https://docs.google.com/forms/d/e/${cleanInput}/viewform?embedded=true`
+      return `https://docs.google.com/forms/d/e/${cleanInput}/viewform?embedded=true&chrome=false&header=false`
     }
     
     // Fallback: assume it's an ID
-    return `https://docs.google.com/forms/d/e/${cleanInput}/viewform?embedded=true`
+    return `https://docs.google.com/forms/d/e/${cleanInput}/viewform?embedded=true&chrome=false&header=false`
   }
 
   const embedUrl = getEmbedUrl(formId)
