@@ -28,7 +28,6 @@ export default function Navigation({ titleFont = 'Dancing Script', logo }: Navig
     { name: 'Home', href: '#home' },
     { name: 'Story', href: '#story' },
     { name: 'When & Where', href: '#venue' },
-    { name: 'Gallery', href: '#gallery' },
     { name: 'RSVP', href: '#rsvp' },
   ]
 
