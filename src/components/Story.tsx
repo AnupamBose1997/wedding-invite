@@ -73,7 +73,7 @@ export default function Story({ story }: StoryProps) {
                   whileHover={{ scale: 1.05 }}
                 >
                   <Image
-                    src={urlFor(image).width(600).height={index === 0 && story.images && story.images.length > 1 ? 400 : 600}.url()}
+                    src={urlFor(image).width(600).height(600).url()}
                     alt={image.alt || `Love story photo ${index + 1}`}
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-110"
