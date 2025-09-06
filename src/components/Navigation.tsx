@@ -3,7 +3,11 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export default function Navigation() {
+interface NavigationProps {
+  titleFont?: string
+}
+
+export default function Navigation({ titleFont = 'Dancing Script' }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -47,7 +51,8 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.div
-            className="text-2xl md:text-3xl font-script font-bold"
+            className="text-2xl md:text-3xl font-bold"
+            style={{ fontFamily: titleFont }}
             whileHover={{ scale: 1.05 }}
           >
             <span className={`${scrolled ? 'text-primary-600' : 'text-white'} transition-colors duration-300`}>

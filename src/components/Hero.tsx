@@ -36,8 +36,54 @@ export default function Hero({ hero }: HeroProps) {
     }
   }
   
+  // Get positioning classes based on contentPosition
+  const getPositionClasses = () => {
+    const vertical = hero.contentPosition?.vertical || 'center'
+    const horizontal = hero.contentPosition?.horizontal || 'center'
+    
+    let classes = 'relative min-h-screen h-screen flex overflow-hidden w-full '
+    
+    // Vertical alignment
+    switch (vertical) {
+      case 'top':
+        classes += 'items-start pt-20 sm:pt-24 '
+        break
+      case 'bottom':
+        classes += 'items-end pb-20 sm:pb-24 '
+        break
+      default: // center
+        classes += 'items-center '
+    }
+    
+    // Horizontal alignment
+    switch (horizontal) {
+      case 'left':
+        classes += 'justify-start '
+        break
+      case 'right':
+        classes += 'justify-end '
+        break
+      default: // center
+        classes += 'justify-center '
+    }
+    
+    return classes
+  }
+
+  const getContentAlignment = () => {
+    const horizontal = hero.contentPosition?.horizontal || 'center'
+    switch (horizontal) {
+      case 'left':
+        return 'text-left'
+      case 'right':
+        return 'text-right'
+      default:
+        return 'text-center'
+    }
+  }
+
   return (
-    <section className="relative min-h-screen h-screen flex items-center justify-center overflow-hidden w-full">
+    <section className={getPositionClasses()}>
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
         {hero.backgroundType === 'video' && hero.backgroundVideo ? (
@@ -97,7 +143,7 @@ export default function Hero({ hero }: HeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8" style={{ color: textColor }}>
+      <div className={`relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 ${getContentAlignment()}`} style={{ color: textColor }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

@@ -224,11 +224,23 @@ export default function RSVP({ rsvp }: RSVPProps) {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-elegant mb-4 sm:mb-6 text-white">
+          <h2 
+            className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6"
+            style={{
+              fontFamily: rsvp.titleFont || 'Playfair Display',
+              color: rsvp.titleColor?.hex || '#ffffff'
+            }}
+          >
             {rsvp.title}
           </h2>
           
-          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-primary-100 max-w-2xl mx-auto leading-relaxed">
+          <p 
+            className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed"
+            style={{
+              fontFamily: rsvp.descriptionFont || 'Lora',
+              color: rsvp.descriptionColor?.hex || '#f3e8ff'
+            }}
+          >
             {rsvp.description}
           </p>
 

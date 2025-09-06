@@ -276,6 +276,40 @@ export default defineType({
           initialValue: 'Dancing Script'
         }),
         defineField({
+          name: 'contentPosition',
+          title: '📍 Text Position on Screen',
+          type: 'object',
+          description: 'Control where the names, subtitle, and date appear on the video/image',
+          fields: [
+            defineField({
+              name: 'vertical',
+              title: '⬆️⬇️ Vertical Position',
+              type: 'string',
+              options: {
+                list: [
+                  {title: '🔝 Top of Screen', value: 'top'},
+                  {title: '🎯 Center of Screen (Default)', value: 'center'},
+                  {title: '🔽 Bottom of Screen', value: 'bottom'}
+                ]
+              },
+              initialValue: 'center'
+            }),
+            defineField({
+              name: 'horizontal',
+              title: '⬅️➡️ Horizontal Position',
+              type: 'string',
+              options: {
+                list: [
+                  {title: '⬅️ Left Side', value: 'left'},
+                  {title: '🎯 Center (Default)', value: 'center'},
+                  {title: '➡️ Right Side', value: 'right'}
+                ]
+              },
+              initialValue: 'center'
+            })
+          ]
+        }),
+        defineField({
           name: 'subtitle',
           title: 'Subtitle',
           type: 'string',
@@ -719,10 +753,64 @@ export default defineType({
           validation: Rule => Rule.required()
         }),
         defineField({
+          name: 'titleFont',
+          title: '✍️ RSVP Title Font',
+          type: 'string',
+          description: 'Choose the font for the RSVP title',
+          options: {
+            list: [
+              {title: '💃 Dancing Script (Romantic Script)', value: 'Dancing Script'},
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '📖 Lora (Easy to Read)', value: 'Lora'},
+              {title: '🧹 Open Sans (Clean & Modern)', value: 'Open Sans'},
+              {title: '🔥 Montserrat (Professional)', value: 'Montserrat'},
+              {title: '📜 Crimson Text (Traditional)', value: 'Crimson Text'},
+              {title: '💼 Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
+            ]
+          },
+          initialValue: 'Playfair Display'
+        }),
+        defineField({
+          name: 'titleColor',
+          title: '🎨 RSVP Title Color',
+          type: 'color',
+          description: 'Color for the RSVP title text',
+          options: {
+            disableAlpha: true
+          }
+        }),
+        defineField({
           name: 'description',
           title: 'RSVP Description',
           type: 'text',
           validation: Rule => Rule.required()
+        }),
+        defineField({
+          name: 'descriptionFont',
+          title: '✍️ RSVP Description Font',
+          type: 'string',
+          description: 'Choose the font for the RSVP description text',
+          options: {
+            list: [
+              {title: '💃 Dancing Script (Romantic Script)', value: 'Dancing Script'},
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '📖 Lora (Easy to Read)', value: 'Lora'},
+              {title: '🧹 Open Sans (Clean & Modern)', value: 'Open Sans'},
+              {title: '🔥 Montserrat (Professional)', value: 'Montserrat'},
+              {title: '📜 Crimson Text (Traditional)', value: 'Crimson Text'},
+              {title: '💼 Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
+            ]
+          },
+          initialValue: 'Lora'
+        }),
+        defineField({
+          name: 'descriptionColor',
+          title: '🎨 RSVP Description Color',
+          type: 'color',
+          description: 'Color for the RSVP description text',
+          options: {
+            disableAlpha: true
+          }
         }),
         defineField({
           name: 'backgroundColor',

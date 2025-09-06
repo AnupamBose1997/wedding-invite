@@ -28,6 +28,10 @@ const defaultData: WeddingData = {
     firstName: 'Anupam',
     secondName: 'Aastha',
     titleFont: 'Dancing Script',
+    contentPosition: {
+      vertical: 'center' as const,
+      horizontal: 'center' as const
+    },
     subtitle: 'We\'re getting married!',
     backgroundType: 'image' as const,
     backgroundImage: null,
@@ -51,7 +55,9 @@ const defaultData: WeddingData = {
   },
   rsvp: {
     title: 'Will You Join Us?',
+    titleFont: 'Playfair Display',
     description: 'Your presence would make our day even more special. Please let us know if you can celebrate with us!',
+    descriptionFont: 'Lora',
     formType: 'buttons' as const,
     deadline: '2024-12-15T00:00:00.000Z',
     contactInfo: {
@@ -90,7 +96,7 @@ export default async function Home() {
   return (
     <main>
       <DynamicStyles siteSettings={data.siteSettings} />
-      <Navigation />
+      <Navigation titleFont={data.hero.titleFont} />
       
       <section id="home">
         <Hero hero={data.hero} />

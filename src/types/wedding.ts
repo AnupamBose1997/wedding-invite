@@ -65,6 +65,10 @@ export interface Hero {
   secondName?: string
   customTitle?: string
   titleFont?: string
+  contentPosition?: {
+    vertical: 'top' | 'center' | 'bottom'
+    horizontal: 'left' | 'center' | 'right'
+  }
   subtitle: string
   backgroundType: 'image' | 'video'
   backgroundImage?: SanityImage | null
@@ -116,7 +120,11 @@ export interface Gallery {
 
 export interface RSVP {
   title: string
+  titleFont?: string
+  titleColor?: SanityColor
   description: string
+  descriptionFont?: string
+  descriptionColor?: SanityColor
   backgroundColor?: SanityColor
   formType: 'google-forms' | 'typeform' | 'custom' | 'buttons'
   googleFormId?: string

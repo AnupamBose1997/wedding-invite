@@ -60,6 +60,10 @@ export const queries = {
       secondName,
       customTitle,
       titleFont,
+      contentPosition{
+        vertical,
+        horizontal
+      },
       subtitle,
       backgroundType,
       backgroundImage,
@@ -126,7 +130,11 @@ export const queries = {
     },
     rsvp{
       title,
+      titleFont,
+      titleColor,
       description,
+      descriptionFont,
+      descriptionColor,
       backgroundColor,
       formType,
       googleFormId,
