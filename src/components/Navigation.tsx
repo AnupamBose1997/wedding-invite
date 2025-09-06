@@ -2,12 +2,16 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import { urlFor } from '@/lib/sanity'
+import { SanityImage } from '@/types/wedding'
 
 interface NavigationProps {
   titleFont?: string
+  logo?: SanityImage
 }
 
-export default function Navigation({ titleFont = 'Dancing Script' }: NavigationProps) {
+export default function Navigation({ titleFont = 'Dancing Script', logo }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -51,13 +55,26 @@ export default function Navigation({ titleFont = 'Dancing Script' }: NavigationP
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.div
-            className="text-2xl md:text-3xl font-bold"
-            style={{ fontFamily: titleFont }}
+            className="flex items-center"
             whileHover={{ scale: 1.05 }}
           >
-            <span className={`${scrolled ? 'text-primary-600' : 'text-white'} transition-colors duration-300`}>
-              A & A
-            </span>
+            {logo ? (
+              <Image
+                src={urlFor(logo).width(200).height(60).url()}
+                alt={logo.alt || 'Wedding Logo'}
+                width={200}
+                height={60}
+                className="h-8 md:h-10 w-auto object-contain"
+                priority
+              />
+            ) : (
+              <span 
+                className={`text-2xl md:text-3xl font-bold ${scrolled ? 'text-primary-600' : 'text-white'} transition-colors duration-300`}
+                style={{ fontFamily: titleFont }}
+              >
+                A & A
+              </span>
+            )}
           </motion.div>
 
           {/* Desktop Navigation */}

@@ -96,7 +96,7 @@ export default async function Home() {
   return (
     <main>
       <DynamicStyles siteSettings={data.siteSettings} />
-      <Navigation titleFont={data.hero.titleFont} />
+      <Navigation titleFont={data.hero.titleFont} logo={data.siteSettings.logo} />
       
       <section id="home">
         <Hero hero={data.hero} />

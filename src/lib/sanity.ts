@@ -43,6 +43,7 @@ export const queries = {
       textColor,
       primaryFont,
       bodyFont,
+      logo,
       customCSS
     },
     footer{

@@ -46,6 +46,7 @@ export interface SiteSettings {
   textColor?: SanityColor
   primaryFont: string
   bodyFont: string
+  logo?: SanityImage
   customCSS?: string
 }
 

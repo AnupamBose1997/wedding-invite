@@ -99,6 +99,33 @@ export default defineType({
           initialValue: 'Playfair Display'
         }),
         
+        // Logo Section
+        defineField({
+          name: 'logo',
+          title: '🏷️ Custom Logo (Optional)',
+          type: 'image',
+          description: '📸 Upload a PNG/JPG logo to replace the "A & A" text in navigation. Recommended: 200x60px or similar ratio.',
+          options: {
+            hotspot: true,
+            accept: '.png,.jpg,.jpeg,.svg'
+          },
+          fields: [
+            defineField({
+              name: 'alt',
+              type: 'string',
+              title: 'Logo Description',
+              description: 'Describe the logo for accessibility (e.g., "Wedding Logo", "Couple Initials")',
+              validation: Rule => Rule.custom((alt, context) => {
+                const parent = context.parent as any
+                if (parent && !alt) {
+                  return 'Please provide a description for your logo'
+                }
+                return true
+              })
+            })
+          ]
+        }),
+        
         // Advanced Section
         defineField({
           name: 'customCSS',
