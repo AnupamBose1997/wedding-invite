@@ -7,11 +7,16 @@ import { urlFor } from '@/lib/sanity'
 import { Gallery as GalleryType } from '@/types/wedding'
 
 interface GalleryProps {
-  gallery: GalleryType
+  gallery: GalleryType | null
 }
 
 export default function Gallery({ gallery }: GalleryProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
+
+  // If gallery is null, don't render anything
+  if (!gallery) {
+    return null
+  }
 
   return (
     <section id="gallery" className="py-16 sm:py-20 bg-gradient-to-br from-pink-50 to-gold-50">
@@ -26,7 +31,7 @@ export default function Gallery({ gallery }: GalleryProps) {
           Our Memories
         </motion.h2>
 
-        {gallery.images && gallery.images.length > 0 ? (
+        {gallery && gallery.images && Array.isArray(gallery.images) && gallery.images.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 max-w-7xl mx-auto">
             {gallery.images.map((image, index) => (
             <motion.div
@@ -83,7 +88,7 @@ export default function Gallery({ gallery }: GalleryProps) {
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()}
             >
-              {gallery.images && selectedImage !== null && (
+              {gallery && gallery.images && Array.isArray(gallery.images) && selectedImage !== null && selectedImage < gallery.images.length && (
                 <Image
                   src={urlFor(gallery.images[selectedImage]).width(1200).height(800).url()}
                   alt={gallery.images[selectedImage].alt || `Gallery image ${selectedImage + 1}`}
@@ -115,7 +120,7 @@ export default function Gallery({ gallery }: GalleryProps) {
                 </button>
               )}
               
-              {gallery.images && selectedImage !== null && selectedImage < gallery.images.length - 1 && (
+              {gallery && gallery.images && Array.isArray(gallery.images) && selectedImage !== null && selectedImage < gallery.images.length - 1 && (
                 <button
                   className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 text-white bg-black/60 rounded-full p-2 sm:p-3 hover:bg-black/80 transition-colors touch-manipulation"
                   onClick={() => setSelectedImage(selectedImage + 1)}

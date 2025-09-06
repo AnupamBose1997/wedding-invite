@@ -151,7 +151,7 @@ export interface WeddingData {
   hero: Hero
   ceremonies: Ceremonies | null
   venue: Venue
-  gallery: Gallery
+  gallery: Gallery | null
   rsvp: RSVP
   story: Story
 }

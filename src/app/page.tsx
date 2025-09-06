@@ -50,9 +50,7 @@ const defaultData: WeddingData = {
     mapEmbed: '',
     description: 'A beautiful outdoor venue perfect for our special day.'
   },
-  gallery: {
-    images: null
-  },
+  gallery: null,
   rsvp: {
     title: 'Will You Join Us?',
     titleFont: 'Playfair Display',
@@ -117,9 +115,11 @@ export default async function Home() {
         <Venue venue={data.venue} ceremonies={data.ceremonies} />
       </section>
       
-      <section id="gallery">
-        <Gallery gallery={data.gallery} />
-      </section>
+      {data.gallery && (
+        <section id="gallery">
+          <Gallery gallery={data.gallery} />
+        </section>
+      )}
       
       <section id="rsvp">
         <RSVP rsvp={data.rsvp} />

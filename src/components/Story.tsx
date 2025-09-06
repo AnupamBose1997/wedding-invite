@@ -57,7 +57,7 @@ export default function Story({ story }: StoryProps) {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              {story.images && story.images.length > 0 ? story.images.map((image, index) => (
+              {story.images && Array.isArray(story.images) && story.images.length > 0 ? story.images.map((image, index) => (
                 <motion.div
                   key={index}
                   className={`relative overflow-hidden rounded-lg ${
