@@ -930,25 +930,28 @@ export default defineType({
         }),
         defineField({
           name: 'images',
-          title: 'Story Images',
+          title: '📸 Love Story Photos (Max 12)',
           type: 'array',
+          description: '🎯 Upload photos that tell your love story - engagement photos, memorable moments, travels together, etc. Maximum 12 photos.',
           of: [
             {
               type: 'image',
               options: {
                 hotspot: true,
+                accept: '.png,.jpg,.jpeg'
               },
               fields: [
                 {
                   name: 'alt',
                   type: 'string',
-                  title: 'Alternative text',
-                  description: 'Important for SEO and accessibility.'
+                  title: 'Photo Description',
+                  description: 'Describe this photo (e.g., "Our first date", "Engagement photo", "Vacation in Paris")',
+                  placeholder: 'e.g., Our engagement photo at the beach'
                 }
               ]
             }
           ],
-          validation: Rule => Rule.max(6)
+          validation: Rule => Rule.max(12).error('You can upload maximum 12 photos for your love story')
         })
       ]
     })

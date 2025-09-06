@@ -51,7 +51,7 @@ export default function Story({ story }: StoryProps) {
 
             {/* Story Images */}
             <motion.div
-              className="grid grid-cols-2 gap-2 sm:gap-4 order-1 lg:order-2"
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4 order-1 lg:order-2"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -61,25 +61,31 @@ export default function Story({ story }: StoryProps) {
                 <motion.div
                   key={index}
                   className={`relative overflow-hidden rounded-lg ${
-                    index === 0 ? 'col-span-2 aspect-[3/2]' : 'aspect-square'
+                    // Make first image larger if there are multiple images
+                    story.images && story.images.length > 1 && index === 0 
+                      ? 'col-span-2 aspect-[3/2]' 
+                      : 'aspect-square'
                   }`}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: (index * 0.1) % 1.2 }} // Stagger but reset after 12 items
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
                 >
                   <Image
-                    src={urlFor(image).width(600).height(400).url()}
-                    alt={image.alt || `Story image ${index + 1}`}
+                    src={urlFor(image).width(600).height={index === 0 && story.images && story.images.length > 1 ? 400 : 600}.url()}
+                    alt={image.alt || `Love story photo ${index + 1}`}
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-110"
                   />
                 </motion.div>
               )) : (
-                <div className="col-span-2 card text-center">
+                <div className="col-span-2 sm:col-span-3 md:col-span-4 card text-center">
                   <p className="text-gray-600">
-                    💕 Story photos will appear here once added through Sanity CMS
+                    💕 Upload up to 12 photos of your love story through Sanity CMS
+                  </p>
+                  <p className="text-sm text-gray-500 mt-2">
+                    Engagement photos, memorable moments, travels together, etc.
                   </p>
                 </div>
               )}
