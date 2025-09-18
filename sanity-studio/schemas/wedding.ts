@@ -403,8 +403,8 @@ export default defineType({
         }),
         defineField({
           name: 'weddingDate',
-          title: 'Wedding Date & Time',
-          type: 'datetime',
+          title: 'Wedding Date',
+          type: 'date',
           validation: Rule => Rule.required(),
           description: 'This will be used for the countdown timer'
         }),
@@ -466,8 +466,8 @@ export default defineType({
             }),
             defineField({
               name: 'date',
-              title: 'Date & Time',
-              type: 'datetime',
+              title: 'Date',
+              type: 'date',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
@@ -527,8 +527,8 @@ export default defineType({
             }),
             defineField({
               name: 'date',
-              title: 'Date & Time',
-              type: 'datetime',
+              title: 'Date',
+              type: 'date',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
@@ -588,8 +588,8 @@ export default defineType({
             }),
             defineField({
               name: 'date',
-              title: 'Date & Time',
-              type: 'datetime',
+              title: 'Date',
+              type: 'date',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
@@ -681,8 +681,8 @@ export default defineType({
             }),
             defineField({
               name: 'date',
-              title: 'Date & Time',
-              type: 'datetime',
+              title: 'Date',
+              type: 'date',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
@@ -744,7 +744,7 @@ export default defineType({
         defineField({
           name: 'date',
           title: 'Event Date',
-          type: 'datetime',
+          type: 'date',
           validation: Rule => Rule.required()
         }),
         defineField({
