@@ -79,6 +79,7 @@ export interface Hero {
   overlayOpacity: number
   textColor?: SanityColor
   weddingDate: string
+  countdownDate?: string
   time?: string
   showCountdown: boolean
   showScrollIndicator: boolean

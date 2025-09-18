@@ -38,7 +38,8 @@ const defaultData: WeddingData = {
     backgroundType: 'image' as const,
     backgroundImage: null,
     overlayOpacity: 30,
-    weddingDate: '2025-12-28T06:00:00.000Z',
+    weddingDate: 'Sunday, December 28, 2025',
+    countdownDate: '2025-12-28T06:00:00.000Z',
     showCountdown: true,
     showScrollIndicator: true,
     scrollIndicatorStyle: 'mouse' as const
@@ -126,7 +127,7 @@ export default async function Home({ searchParams }: { searchParams: { invite?: 
       
       {inviteConfig.showCountdown && data.hero.showCountdown && (
         <Countdown 
-          targetDate={data.hero.weddingDate} 
+          targetDate={data.hero.countdownDate || data.hero.weddingDate} 
           showCountdown={data.hero.showCountdown}
         />
       )}

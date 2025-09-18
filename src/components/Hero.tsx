@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -182,12 +182,7 @@ export default function Hero({ hero }: HeroProps) {
             animate={{ opacity: 0.8, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            {new Date(hero.weddingDate).toLocaleDateString('en-US', {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
+            {hero.weddingDate}
           </motion.div>
         </motion.div>
       </div>

@@ -129,12 +129,7 @@ export default function Venue({ venue, ceremonies, timezone = 'Asia/Kolkata' }: 
                         </h3>
                         <div className="text-base sm:text-lg text-gray-600 space-y-1">
                           <p className="font-medium">
-                            {new Date(event.date).toLocaleDateString('en-US', {
-                              weekday: 'long',
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
+                            {event.date}
                           </p>
                           <p>
                             {event.time || new Date(event.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}

@@ -403,10 +403,18 @@ export default defineType({
         }),
         defineField({
           name: 'weddingDate',
-          title: 'Wedding Date',
-          type: 'date',
-          validation: Rule => Rule.required(),
-          description: 'This will be used for the countdown timer'
+          title: 'Wedding Date Display',
+          type: 'string',
+          description: 'Custom wedding date display (e.g., "Sunday, December 28, 2025")',
+          placeholder: 'e.g., Sunday, December 28, 2025',
+          validation: Rule => Rule.required()
+        }),
+        defineField({
+          name: 'countdownDate',
+          title: 'Countdown Target Date',
+          type: 'datetime',
+          description: 'Actual date/time for countdown calculations (not displayed to users)',
+          validation: Rule => Rule.required()
         }),
         defineField({
           name: 'showCountdown',
@@ -466,8 +474,10 @@ export default defineType({
             }),
             defineField({
               name: 'date',
-              title: 'Date',
-              type: 'date',
+              title: 'Display Date',
+              type: 'string',
+              description: 'Custom date display (e.g., "Saturday, December 27, 2025")',
+              placeholder: 'e.g., Saturday, December 27, 2025',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
@@ -527,8 +537,10 @@ export default defineType({
             }),
             defineField({
               name: 'date',
-              title: 'Date',
-              type: 'date',
+              title: 'Display Date',
+              type: 'string',
+              description: 'Custom date display (e.g., "Saturday, December 27, 2025")',
+              placeholder: 'e.g., Saturday, December 27, 2025',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
@@ -588,8 +600,10 @@ export default defineType({
             }),
             defineField({
               name: 'date',
-              title: 'Date',
-              type: 'date',
+              title: 'Display Date',
+              type: 'string',
+              description: 'Custom date display (e.g., "Saturday, December 27, 2025")',
+              placeholder: 'e.g., Saturday, December 27, 2025',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
@@ -681,8 +695,10 @@ export default defineType({
             }),
             defineField({
               name: 'date',
-              title: 'Date',
-              type: 'date',
+              title: 'Display Date',
+              type: 'string',
+              description: 'Custom date display (e.g., "Saturday, December 27, 2025")',
+              placeholder: 'e.g., Saturday, December 27, 2025',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
@@ -743,8 +759,10 @@ export default defineType({
         }),
         defineField({
           name: 'date',
-          title: 'Event Date',
-          type: 'date',
+          title: 'Event Date Display',
+          type: 'string',
+          description: 'Custom event date display (e.g., "Sunday, December 28, 2025")',
+          placeholder: 'e.g., Sunday, December 28, 2025',
           validation: Rule => Rule.required()
         }),
         defineField({

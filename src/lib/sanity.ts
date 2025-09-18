@@ -73,6 +73,7 @@ export const queries = {
       overlayOpacity,
       textColor,
       weddingDate,
+      countdownDate,
         time,
       showCountdown,
       showScrollIndicator,
