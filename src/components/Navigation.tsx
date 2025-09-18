@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -9,9 +9,10 @@ import { SanityImage } from '@/types/wedding'
 interface NavigationProps {
   titleFont?: string
   logo?: SanityImage
+  navItems?: Array<{ name: string; href: string }>
 }
 
-export default function Navigation({ titleFont = 'Dancing Script', logo }: NavigationProps) {
+export default function Navigation({ titleFont = 'Dancing Script', logo, navItems }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -24,12 +25,14 @@ export default function Navigation({ titleFont = 'Dancing Script', logo }: Navig
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navItems = [
+  const defaultNavItems = [
     { name: 'Home', href: '#home' },
     { name: 'Story', href: '#story' },
     { name: 'When & Where', href: '#venue' },
     { name: 'RSVP', href: '#rsvp' },
   ]
+
+  const finalNavItems = navItems || defaultNavItems
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
@@ -78,7 +81,7 @@ export default function Navigation({ titleFont = 'Dancing Script', logo }: Navig
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
+            {finalNavItems.map((item) => (
               <motion.button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
@@ -121,7 +124,7 @@ export default function Navigation({ titleFont = 'Dancing Script', logo }: Navig
             transition={{ duration: 0.3 }}
           >
             <div className="container mx-auto px-4 py-4 space-y-4">
-              {navItems.map((item, index) => (
+              {finalNavItems.map((item, index) => (
                 <motion.button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}

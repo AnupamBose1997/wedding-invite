@@ -1,6 +1,5 @@
-﻿import { client, queries } from '@/lib/sanity'
+import { client, queries } from '@/lib/sanity'
 import { WeddingData } from '@/types/wedding'
-import { getInviteConfig, filterCeremoniesForInvite, getNavigationItemsForInvite } from '@/lib/inviteFilter'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import Countdown from '@/components/Countdown'
@@ -16,14 +15,13 @@ const defaultData: WeddingData = {
   siteSettings: {
     siteName: 'Our Wedding',
     primaryFont: 'Dancing Script',
-    bodyFont: 'Playfair Display',
-    timezone: 'Asia/Kolkata'
+    bodyFont: 'Playfair Display'
   },
   footer: {
     coupleNames: 'Anupam & Aastha',
     nameFont: 'Dancing Script',
     thankYouMessage: 'Thank you for being part of our journey',
-    copyrightText: ' 2025 Wedding Invitation'
+    copyrightText: '© 2025 Wedding Invitation'
   },
   hero: {
     titleStyle: 'ampersand' as const,
@@ -38,7 +36,7 @@ const defaultData: WeddingData = {
     backgroundType: 'image' as const,
     backgroundImage: null,
     overlayOpacity: 30,
-    weddingDate: '2025-12-28T06:00:00.000Z',
+    weddingDate: '2024-12-25T16:00:00.000Z',
     showCountdown: true,
     showScrollIndicator: true,
     scrollIndicatorStyle: 'mouse' as const
@@ -90,80 +88,44 @@ async function getWeddingData(): Promise<WeddingData> {
   }
 }
 
-export default async function Home({ searchParams }: { searchParams: { invite?: string } }) {
+export default async function Home() {
   const data = await getWeddingData()
-  
-  // Get invite configuration based on URL parameter
-  const inviteConfig = getInviteConfig(searchParams.invite)
-  
-  // Filter ceremonies based on invite type
-  const filteredCeremonies = filterCeremoniesForInvite(data.ceremonies, inviteConfig.showCeremonies)
-  
-  // Choose which RSVP data to use based on invite type
-  const rsvpData = inviteConfig.rsvpFormType === 'reception' && data.receptionRSVP 
-    ? data.receptionRSVP 
-    : data.rsvp
 
   return (
     <main>
       <DynamicStyles siteSettings={data.siteSettings} />
-      <Navigation 
-        titleFont={data.hero.titleFont} 
-        logo={data.siteSettings.logo}
-        navItems={getNavigationItemsForInvite(inviteConfig)}
-      />
+      <Navigation titleFont={data.hero.titleFont} logo={data.siteSettings.logo} />
       
-      {inviteConfig.showHero && (
-        <section id="home">
-          <Hero 
-            hero={{
-              ...data.hero,
-              subtitle: inviteConfig.customSubtitle || data.hero.subtitle
-            }} 
-          />
-        </section>
-      )}
+      <section id="home">
+        <Hero hero={data.hero} />
+      </section>
       
-      {inviteConfig.showCountdown && data.hero.showCountdown && (
+      {data.hero.showCountdown && (
         <Countdown 
           targetDate={data.hero.weddingDate} 
           showCountdown={data.hero.showCountdown}
         />
       )}
       
-      {inviteConfig.showStory && (
-        <section id="story">
-          <Story story={data.story} />
-        </section>
-      )}
+      <section id="story">
+        <Story story={data.story} />
+      </section>
       
-      {filteredCeremonies && inviteConfig.showCeremonies.length > 0 && (
-        <section id="venue">
-          <Venue 
-            venue={data.venue} 
-            ceremonies={filteredCeremonies} 
-            timezone={data.siteSettings.timezone} 
-          />
-        </section>
-      )}
+      <section id="venue">
+        <Venue venue={data.venue} ceremonies={data.ceremonies} />
+      </section>
       
-      {inviteConfig.showGallery && data.gallery && (
+      {data.gallery && (
         <section id="gallery">
           <Gallery gallery={data.gallery} />
         </section>
       )}
       
-      {inviteConfig.showRSVP && (
-        <section id="rsvp">
-          <RSVP 
-            rsvp={rsvpData} 
-            timezone={data.siteSettings.timezone}
-            inviteType={inviteConfig.type}
-          />
-        </section>
-      )}
+      <section id="rsvp">
+        <RSVP rsvp={data.rsvp} />
+      </section>
       
-      {/* Footer - always show */}
+      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4 text-center">
           <div className="mb-6">
@@ -186,7 +148,7 @@ export default async function Home({ searchParams }: { searchParams: { invite?: 
               className="text-sm"
               style={{ color: data.footer?.copyrightColor?.hex || '#6B7280' }}
             >
-              {data.footer?.copyrightText || ' 2025 Wedding Invitation'}
+              {data.footer?.copyrightText || '© 2025 Wedding Invitation'}
             </p>
           </div>
         </div>

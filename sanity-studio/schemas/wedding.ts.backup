@@ -1,4 +1,4 @@
-﻿import {defineField, defineType} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'wedding',
@@ -8,13 +8,13 @@ export default defineType({
     // Site Settings & Styling
     defineField({
       name: 'siteSettings',
-      title: 'ðŸŽ¨ Website Design & Colors',
+      title: '🎨 Website Design & Colors',
       type: 'object',
       description: 'Control the overall look and feel of your wedding website',
       fields: [
         defineField({
           name: 'siteName',
-          title: 'ðŸ·ï¸ Website Name',
+          title: '🏷️ Website Name',
           type: 'string',
           description: 'Name that appears in the browser tab',
           initialValue: 'Our Wedding',
@@ -24,18 +24,18 @@ export default defineType({
         // Main Colors Section
         defineField({
           name: 'primaryColor',
-          title: 'ðŸ’Ž PRIMARY COLOR â†’ Buttons, Links & Highlights',
+          title: '💎 PRIMARY COLOR → Buttons, Links & Highlights',
           type: 'color',
-          description: 'ðŸŽ¯ This color appears on: Navigation links, buttons, section titles, timeline dots, and all clickable elements',
+          description: '🎯 This color appears on: Navigation links, buttons, section titles, timeline dots, and all clickable elements',
           options: {
             disableAlpha: true
           }
         }),
         defineField({
           name: 'secondaryColor',
-          title: 'âœ¨ SECONDARY COLOR â†’ Accents & Decorations',
+          title: '✨ SECONDARY COLOR → Accents & Decorations',
           type: 'color',
-          description: 'ðŸŽ¯ This color appears on: Decorative elements, gradients, secondary buttons, and accent details',
+          description: '🎯 This color appears on: Decorative elements, gradients, secondary buttons, and accent details',
           options: {
             disableAlpha: true
           }
@@ -44,18 +44,18 @@ export default defineType({
         // Background & Text Colors
         defineField({
           name: 'backgroundColor',
-          title: 'ðŸ  BACKGROUND COLOR â†’ Page Background',
+          title: '🏠 BACKGROUND COLOR → Page Background',
           type: 'color',
-          description: 'ðŸŽ¯ This color appears on: Main page background, section backgrounds, and card backgrounds',
+          description: '🎯 This color appears on: Main page background, section backgrounds, and card backgrounds',
           options: {
             disableAlpha: true
           }
         }),
         defineField({
           name: 'textColor',
-          title: 'ðŸ“ TEXT COLOR â†’ All Written Content',
+          title: '📝 TEXT COLOR → All Written Content',
           type: 'color',
-          description: 'ðŸŽ¯ This color appears on: All body text, descriptions, venue details, and readable content',
+          description: '🎯 This color appears on: All body text, descriptions, venue details, and readable content',
           options: {
             disableAlpha: true
           }
@@ -64,36 +64,36 @@ export default defineType({
         // Fonts Section
         defineField({
           name: 'primaryFont',
-          title: 'ðŸ‘‘ HEADING FONT â†’ Names & Titles',
+          title: '👑 HEADING FONT → Names & Titles',
           type: 'string',
-          description: 'ðŸŽ¯ This font appears on: Your names, section headings (When & Where, Gallery, etc.), and main titles',
+          description: '🎯 This font appears on: Your names, section headings (When & Where, Gallery, etc.), and main titles',
           options: {
             list: [
-              {title: 'ðŸ’ƒ Dancing Script (Handwritten Style)', value: 'Dancing Script'},
-              {title: 'âœ¨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
-              {title: 'ðŸ’« Great Vibes (Cursive Script)', value: 'Great Vibes'},
-              {title: 'ðŸ›ï¸ Cormorant Garamond (Classic Serif)', value: 'Cormorant Garamond'},
-              {title: 'ðŸ”¥ Montserrat (Modern Sans)', value: 'Montserrat'},
-              {title: 'ðŸ§¹ Open Sans (Clean Sans)', value: 'Open Sans'},
-              {title: 'ðŸ“– Lora (Readable Serif)', value: 'Lora'},
-              {title: 'ðŸ“œ Crimson Text (Traditional)', value: 'Crimson Text'}
+              {title: '💃 Dancing Script (Handwritten Style)', value: 'Dancing Script'},
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '💫 Great Vibes (Cursive Script)', value: 'Great Vibes'},
+              {title: '🏛️ Cormorant Garamond (Classic Serif)', value: 'Cormorant Garamond'},
+              {title: '🔥 Montserrat (Modern Sans)', value: 'Montserrat'},
+              {title: '🧹 Open Sans (Clean Sans)', value: 'Open Sans'},
+              {title: '📖 Lora (Readable Serif)', value: 'Lora'},
+              {title: '📜 Crimson Text (Traditional)', value: 'Crimson Text'}
             ]
           },
           initialValue: 'Dancing Script'
         }),
         defineField({
           name: 'bodyFont',
-          title: 'ðŸ“„ BODY FONT â†’ Descriptions & Details',
+          title: '📄 BODY FONT → Descriptions & Details',
           type: 'string',
-          description: 'ðŸŽ¯ This font appears on: Venue addresses, story text, RSVP details, and all paragraph content',
+          description: '🎯 This font appears on: Venue addresses, story text, RSVP details, and all paragraph content',
           options: {
             list: [
-              {title: 'âœ¨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
-              {title: 'ðŸ“– Lora (Easy to Read)', value: 'Lora'},
-              {title: 'ðŸ§¹ Open Sans (Clean & Modern)', value: 'Open Sans'},
-              {title: 'ðŸ”¥ Montserrat (Professional)', value: 'Montserrat'},
-              {title: 'ðŸ“œ Crimson Text (Traditional)', value: 'Crimson Text'},
-              {title: 'ðŸ’¼ Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '📖 Lora (Easy to Read)', value: 'Lora'},
+              {title: '🧹 Open Sans (Clean & Modern)', value: 'Open Sans'},
+              {title: '🔥 Montserrat (Professional)', value: 'Montserrat'},
+              {title: '📜 Crimson Text (Traditional)', value: 'Crimson Text'},
+              {title: '💼 Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
             ]
           },
           initialValue: 'Playfair Display'
@@ -102,9 +102,9 @@ export default defineType({
         // Logo Section
         defineField({
           name: 'logo',
-          title: 'ðŸ·ï¸ Custom Logo (Optional)',
+          title: '🏷️ Custom Logo (Optional)',
           type: 'image',
-          description: 'ðŸ“¸ Upload a PNG/JPG logo to replace the "A & A" text in navigation. Recommended: 200x60px or similar ratio.',
+          description: '📸 Upload a PNG/JPG logo to replace the "A & A" text in navigation. Recommended: 200x60px or similar ratio.',
           options: {
             hotspot: true,
             accept: '.png,.jpg,.jpeg,.svg'
@@ -129,9 +129,9 @@ export default defineType({
         // Advanced Section
         defineField({
           name: 'customCSS',
-          title: 'ðŸ’» Custom CSS (For Developers Only)',
+          title: '💻 Custom CSS (For Developers Only)',
           type: 'text',
-          description: 'âš ï¸ Advanced users only: Add custom CSS code to override default styling. Leave blank if unsure.',
+          description: '⚠️ Advanced users only: Add custom CSS code to override default styling. Leave blank if unsure.',
           rows: 5
         })
       ]
@@ -140,20 +140,20 @@ export default defineType({
     // Footer Section
     defineField({
       name: 'footer',
-      title: 'ðŸ¦¶ Footer Section',
+      title: '🦶 Footer Section',
       type: 'object',
       description: 'Customize the footer text, colors, and fonts at the bottom of your website',
       fields: [
         defineField({
           name: 'coupleNames',
-          title: 'ðŸ’‘ Couple Names Display',
+          title: '💑 Couple Names Display',
           type: 'string',
           description: 'How your names appear in the footer (e.g., "Anupam & Aastha")',
           initialValue: 'Anupam & Aastha'
         }),
         defineField({
           name: 'nameColor',
-          title: 'ðŸŽ¨ Names Color',
+          title: '🎨 Names Color',
           type: 'color',
           description: 'Color for the couple names in footer',
           options: {
@@ -163,29 +163,29 @@ export default defineType({
         }),
         defineField({
           name: 'nameFont',
-          title: 'âœï¸ Names Font',
+          title: '✍️ Names Font',
           type: 'string',
           options: {
             list: [
-              {title: 'ðŸ’ƒ Dancing Script (Romantic Script)', value: 'Dancing Script'},
-              {title: 'âœ¨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
-              {title: 'ðŸ“– Lora (Easy to Read)', value: 'Lora'},
-              {title: 'ðŸ§¹ Open Sans (Clean & Modern)', value: 'Open Sans'},
-              {title: 'ðŸ”¥ Montserrat (Professional)', value: 'Montserrat'}
+              {title: '💃 Dancing Script (Romantic Script)', value: 'Dancing Script'},
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '📖 Lora (Easy to Read)', value: 'Lora'},
+              {title: '🧹 Open Sans (Clean & Modern)', value: 'Open Sans'},
+              {title: '🔥 Montserrat (Professional)', value: 'Montserrat'}
             ]
           },
           initialValue: 'Dancing Script'
         }),
         defineField({
           name: 'thankYouMessage',
-          title: 'ðŸ’ Thank You Message',
+          title: '💝 Thank You Message',
           type: 'string',
           description: 'Message below the names',
           initialValue: 'Thank you for being part of our journey'
         }),
         defineField({
           name: 'messageColor',
-          title: 'ðŸŽ¨ Message Color',
+          title: '🎨 Message Color',
           type: 'color',
           description: 'Color for the thank you message',
           options: {
@@ -195,14 +195,14 @@ export default defineType({
         }),
         defineField({
           name: 'copyrightText',
-          title: 'Â© Copyright Text',
+          title: '© Copyright Text',
           type: 'string',
           description: 'Copyright text at the bottom',
-          initialValue: 'Â© 2025 Wedding Invitation'
+          initialValue: '© 2025 Wedding Invitation'
         }),
         defineField({
           name: 'copyrightColor',
-          title: 'ðŸŽ¨ Copyright Color',
+          title: '🎨 Copyright Color',
           type: 'color',
           description: 'Color for the copyright text',
           options: {
@@ -284,52 +284,52 @@ export default defineType({
         }),
         defineField({
           name: 'titleFont',
-          title: 'âœï¸ Names Font Style',
+          title: '✍️ Names Font Style',
           type: 'string',
           description: 'Choose the font for the couple names display in the hero section',
           options: {
             list: [
-              {title: 'ðŸ’ƒ Dancing Script (Romantic Script)', value: 'Dancing Script'},
-              {title: 'âœ¨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
-              {title: 'ðŸ“– Lora (Easy to Read)', value: 'Lora'},
-              {title: 'ðŸ§¹ Open Sans (Clean & Modern)', value: 'Open Sans'},
-              {title: 'ðŸ”¥ Montserrat (Professional)', value: 'Montserrat'},
-              {title: 'ðŸ“œ Crimson Text (Traditional)', value: 'Crimson Text'},
-              {title: 'ðŸ’¼ Source Sans Pro (Business Style)', value: 'Source Sans Pro'},
-              {title: 'ðŸŽ­ Great Vibes (Elegant Script)', value: 'Great Vibes'},
-              {title: 'ðŸŒ¸ Pacifico (Fun & Friendly)', value: 'Pacifico'}
+              {title: '💃 Dancing Script (Romantic Script)', value: 'Dancing Script'},
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '📖 Lora (Easy to Read)', value: 'Lora'},
+              {title: '🧹 Open Sans (Clean & Modern)', value: 'Open Sans'},
+              {title: '🔥 Montserrat (Professional)', value: 'Montserrat'},
+              {title: '📜 Crimson Text (Traditional)', value: 'Crimson Text'},
+              {title: '💼 Source Sans Pro (Business Style)', value: 'Source Sans Pro'},
+              {title: '🎭 Great Vibes (Elegant Script)', value: 'Great Vibes'},
+              {title: '🌸 Pacifico (Fun & Friendly)', value: 'Pacifico'}
             ]
           },
           initialValue: 'Dancing Script'
         }),
         defineField({
           name: 'contentPosition',
-          title: 'ðŸ“ Text Position on Screen',
+          title: '📍 Text Position on Screen',
           type: 'object',
           description: 'Control where the names, subtitle, and date appear on the video/image',
           fields: [
             defineField({
               name: 'vertical',
-              title: 'â¬†ï¸â¬‡ï¸ Vertical Position',
+              title: '⬆️⬇️ Vertical Position',
               type: 'string',
               options: {
                 list: [
-                  {title: 'ðŸ” Top of Screen', value: 'top'},
-                  {title: 'ðŸŽ¯ Center of Screen (Default)', value: 'center'},
-                  {title: 'ðŸ”½ Bottom of Screen', value: 'bottom'}
+                  {title: '🔝 Top of Screen', value: 'top'},
+                  {title: '🎯 Center of Screen (Default)', value: 'center'},
+                  {title: '🔽 Bottom of Screen', value: 'bottom'}
                 ]
               },
               initialValue: 'center'
             }),
             defineField({
               name: 'horizontal',
-              title: 'â¬…ï¸âž¡ï¸ Horizontal Position',
+              title: '⬅️➡️ Horizontal Position',
               type: 'string',
               options: {
                 list: [
-                  {title: 'â¬…ï¸ Left Side', value: 'left'},
-                  {title: 'ðŸŽ¯ Center (Default)', value: 'center'},
-                  {title: 'âž¡ï¸ Right Side', value: 'right'}
+                  {title: '⬅️ Left Side', value: 'left'},
+                  {title: '🎯 Center (Default)', value: 'center'},
+                  {title: '➡️ Right Side', value: 'right'}
                 ]
               },
               initialValue: 'center'
@@ -394,12 +394,12 @@ export default defineType({
         }),
         defineField({
           name: 'textColor',
-          title: 'ðŸ“ HERO TEXT COLOR â†’ Names & Titles Only',
+          title: '📝 HERO TEXT COLOR → Names & Titles Only',
           type: 'color',
           options: {
             disableAlpha: true
           },
-          description: 'ðŸŽ¯ This color appears ONLY on: Your names and subtitle in the hero section (overrides main text color for hero)'
+          description: '🎯 This color appears ONLY on: Your names and subtitle in the hero section (overrides main text color for hero)'
         }),
         defineField({
           name: 'weddingDate',
@@ -781,25 +781,25 @@ export default defineType({
         }),
         defineField({
           name: 'titleFont',
-          title: 'âœï¸ RSVP Title Font',
+          title: '✍️ RSVP Title Font',
           type: 'string',
           description: 'Choose the font for the RSVP title',
           options: {
             list: [
-              {title: 'ðŸ’ƒ Dancing Script (Romantic Script)', value: 'Dancing Script'},
-              {title: 'âœ¨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
-              {title: 'ðŸ“– Lora (Easy to Read)', value: 'Lora'},
-              {title: 'ðŸ§¹ Open Sans (Clean & Modern)', value: 'Open Sans'},
-              {title: 'ðŸ”¥ Montserrat (Professional)', value: 'Montserrat'},
-              {title: 'ðŸ“œ Crimson Text (Traditional)', value: 'Crimson Text'},
-              {title: 'ðŸ’¼ Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
+              {title: '💃 Dancing Script (Romantic Script)', value: 'Dancing Script'},
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '📖 Lora (Easy to Read)', value: 'Lora'},
+              {title: '🧹 Open Sans (Clean & Modern)', value: 'Open Sans'},
+              {title: '🔥 Montserrat (Professional)', value: 'Montserrat'},
+              {title: '📜 Crimson Text (Traditional)', value: 'Crimson Text'},
+              {title: '💼 Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
             ]
           },
           initialValue: 'Playfair Display'
         }),
         defineField({
           name: 'titleColor',
-          title: 'ðŸŽ¨ RSVP Title Color',
+          title: '🎨 RSVP Title Color',
           type: 'color',
           description: 'Color for the RSVP title text',
           options: {
@@ -814,25 +814,25 @@ export default defineType({
         }),
         defineField({
           name: 'descriptionFont',
-          title: 'âœï¸ RSVP Description Font',
+          title: '✍️ RSVP Description Font',
           type: 'string',
           description: 'Choose the font for the RSVP description text',
           options: {
             list: [
-              {title: 'ðŸ’ƒ Dancing Script (Romantic Script)', value: 'Dancing Script'},
-              {title: 'âœ¨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
-              {title: 'ðŸ“– Lora (Easy to Read)', value: 'Lora'},
-              {title: 'ðŸ§¹ Open Sans (Clean & Modern)', value: 'Open Sans'},
-              {title: 'ðŸ”¥ Montserrat (Professional)', value: 'Montserrat'},
-              {title: 'ðŸ“œ Crimson Text (Traditional)', value: 'Crimson Text'},
-              {title: 'ðŸ’¼ Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
+              {title: '💃 Dancing Script (Romantic Script)', value: 'Dancing Script'},
+              {title: '✨ Playfair Display (Elegant Serif)', value: 'Playfair Display'},
+              {title: '📖 Lora (Easy to Read)', value: 'Lora'},
+              {title: '🧹 Open Sans (Clean & Modern)', value: 'Open Sans'},
+              {title: '🔥 Montserrat (Professional)', value: 'Montserrat'},
+              {title: '📜 Crimson Text (Traditional)', value: 'Crimson Text'},
+              {title: '💼 Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
             ]
           },
           initialValue: 'Lora'
         }),
         defineField({
           name: 'descriptionColor',
-          title: 'ðŸŽ¨ RSVP Description Color',
+          title: '🎨 RSVP Description Color',
           type: 'color',
           description: 'Color for the RSVP description text',
           options: {
@@ -841,9 +841,9 @@ export default defineType({
         }),
         defineField({
           name: 'backgroundColor',
-          title: 'ðŸŽ¨ RSVP SECTION COLOR â†’ Background Only',
+          title: '🎨 RSVP SECTION COLOR → Background Only',
           type: 'color',
-          description: 'ðŸŽ¯ This color appears ONLY on: The RSVP section background (overrides main background color for RSVP section)',
+          description: '🎯 This color appears ONLY on: The RSVP section background (overrides main background color for RSVP section)',
           options: {
             disableAlpha: true
           }
@@ -909,151 +909,6 @@ export default defineType({
       ]
     }),
 
-
-    // Reception-Only RSVP Section
-    defineField({
-      name: 'receptionRSVP',
-      title: '🎉 Reception-Only RSVP (for reception-only guests)',
-      type: 'object',
-      description: 'Separate RSVP form specifically for guests invited only to the reception',
-      fields: [
-        defineField({
-          name: 'title',
-          title: 'Reception RSVP Title',
-          type: 'string',
-          initialValue: 'Join Us for Our Reception!',
-          validation: Rule => Rule.required()
-        }),
-        defineField({
-          name: 'titleFont',
-          title: '✍️ Reception RSVP Title Font',
-          type: 'string',
-          description: 'Choose the font for the reception RSVP title',
-          options: {
-            list: [
-              {title: ' Dancing Script (Romantic Script)', value: 'Dancing Script'},
-              {title: ' Playfair Display (Elegant Serif)', value: 'Playfair Display'},
-              {title: ' Lora (Easy to Read)', value: 'Lora'},
-              {title: ' Open Sans (Clean & Modern)', value: 'Open Sans'},
-              {title: ' Montserrat (Professional)', value: 'Montserrat'},
-              {title: ' Crimson Text (Traditional)', value: 'Crimson Text'},
-              {title: ' Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
-            ]
-          },
-          initialValue: 'Playfair Display'
-        }),
-        defineField({
-          name: 'titleColor',
-          title: ' Reception RSVP Title Color',
-          type: 'color',
-          description: 'Color for the reception RSVP title text',
-          options: {
-            disableAlpha: true
-          }
-        }),
-        defineField({
-          name: 'description',
-          title: 'Reception RSVP Description',
-          type: 'text',
-          initialValue: 'We would love to celebrate with you at our wedding reception! Please confirm your attendance.',
-          validation: Rule => Rule.required()
-        }),
-        defineField({
-          name: 'descriptionFont',
-          title: ' Reception RSVP Description Font',
-          type: 'string',
-          description: 'Choose the font for the reception RSVP description text',
-          options: {
-            list: [
-              {title: ' Dancing Script (Romantic Script)', value: 'Dancing Script'},
-              {title: ' Playfair Display (Elegant Serif)', value: 'Playfair Display'},
-              {title: ' Lora (Easy to Read)', value: 'Lora'},
-              {title: ' Open Sans (Clean & Modern)', value: 'Open Sans'},
-              {title: ' Montserrat (Professional)', value: 'Montserrat'},
-              {title: ' Crimson Text (Traditional)', value: 'Crimson Text'},
-              {title: ' Source Sans Pro (Business Style)', value: 'Source Sans Pro'}
-            ]
-          },
-          initialValue: 'Lora'
-        }),
-        defineField({
-          name: 'descriptionColor',
-          title: ' Reception RSVP Description Color',
-          type: 'color',
-          description: 'Color for the reception RSVP description text',
-          options: {
-            disableAlpha: true
-          }
-        }),
-        defineField({
-          name: 'backgroundColor',
-          title: ' Reception RSVP Background Color',
-          type: 'color',
-          description: 'Background color for the reception RSVP section',
-          options: {
-            disableAlpha: true
-          }
-        }),
-        defineField({
-          name: 'formType',
-          title: 'Reception Form Type',
-          type: 'string',
-          options: {
-            list: [
-              {title: 'Google Forms', value: 'google-forms'},
-              {title: 'Typeform', value: 'typeform'},
-              {title: 'Custom Embed', value: 'custom'},
-              {title: 'Simple Buttons', value: 'buttons'}
-            ]
-          },
-          initialValue: 'google-forms'
-        }),
-        defineField({
-          name: 'googleFormId',
-          title: 'Reception Google Form URL or ID',
-          type: 'string',
-          description: 'Separate Google Form for reception-only RSVPs. Paste the full URL or just the form ID.',
-          placeholder: 'https://docs.google.com/forms/d/1FAIpQLSe7XYZ123.../viewform',
-          hidden: ({parent}) => parent?.formType !== 'google-forms'
-        }),
-        defineField({
-          name: 'formEmbed',
-          title: 'Reception Custom Embed Code',
-          type: 'text',
-          description: 'Full iframe embed code for custom reception forms',
-          hidden: ({parent}) => parent?.formType !== 'custom'
-        }),
-        defineField({
-          name: 'typeformId',
-          title: 'Reception Typeform ID',
-          type: 'string',
-          description: 'Your Typeform ID for reception RSVPs',
-          hidden: ({parent}) => parent?.formType !== 'typeform'
-        }),
-        defineField({
-          name: 'deadline',
-          title: 'Reception RSVP Deadline',
-          type: 'datetime'
-        }),
-        defineField({
-          name: 'contactInfo',
-          title: 'Reception Contact Information',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'email',
-              title: 'Reception Contact Email',
-              type: 'string'
-            }),
-            defineField({
-              name: 'phone',
-              title: 'Reception Contact Phone',
-              type: 'string'
-            })
-          ]
-        })
-      ]
-    }),
     // Story Section
     defineField({
       name: 'story',
@@ -1075,9 +930,9 @@ export default defineType({
         }),
         defineField({
           name: 'images',
-          title: 'ðŸ“¸ Love Story Photos (Max 12)',
+          title: '📸 Love Story Photos (Max 12)',
           type: 'array',
-          description: 'ðŸŽ¯ Upload photos that tell your love story - engagement photos, memorable moments, travels together, etc. Maximum 12 photos.',
+          description: '🎯 Upload photos that tell your love story - engagement photos, memorable moments, travels together, etc. Maximum 12 photos.',
           of: [
             {
               type: 'image',

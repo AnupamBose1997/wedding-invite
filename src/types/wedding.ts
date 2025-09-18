@@ -1,4 +1,4 @@
-export interface SanityImage {
+﻿export interface SanityImage {
   _type: 'image'
   asset: {
     _ref: string
@@ -46,6 +46,7 @@ export interface SiteSettings {
   textColor?: SanityColor
   primaryFont: string
   bodyFont: string
+  timezone?: string
   logo?: SanityImage
   customCSS?: string
 }
@@ -138,6 +139,25 @@ export interface RSVP {
   }
 }
 
+export interface ReceptionRSVP {
+  title: string
+  titleFont?: string
+  titleColor?: SanityColor
+  description: string
+  descriptionFont?: string
+  descriptionColor?: SanityColor
+  backgroundColor?: SanityColor
+  formType: 'google-forms' | 'typeform' | 'custom' | 'buttons'
+  googleFormId?: string
+  formEmbed?: string
+  typeformId?: string
+  deadline?: string
+  contactInfo?: {
+    email?: string
+    phone?: string
+  }
+}
+
 export interface Story {
   title: string
   content: string
@@ -153,5 +173,6 @@ export interface WeddingData {
   venue: Venue
   gallery: Gallery | null
   rsvp: RSVP
+  receptionRSVP?: ReceptionRSVP
   story: Story
 }

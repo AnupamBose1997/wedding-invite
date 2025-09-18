@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import { Ceremonies, Venue as VenueType } from '@/types/wedding'
@@ -6,6 +6,7 @@ import { Ceremonies, Venue as VenueType } from '@/types/wedding'
 interface VenueProps {
   venue: VenueType
   ceremonies: Ceremonies | null
+  timezone?: string
 }
 
 interface TimelineEvent {
@@ -18,7 +19,7 @@ interface TimelineEvent {
   type: 'haldi' | 'cocktail' | 'wedding' | 'reception' | 'legacy'
 }
 
-export default function Venue({ venue, ceremonies }: VenueProps) {
+export default function Venue({ venue, ceremonies, timezone = 'Asia/Kolkata' }: VenueProps) {
   // Collect all events for timeline
   const timelineEvents: TimelineEvent[] = []
 

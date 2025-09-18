@@ -1,10 +1,12 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import { RSVP as RSVPType } from '@/types/wedding'
 
 interface RSVPProps {
   rsvp: RSVPType
+  timezone?: string
+  inviteType?: string
 }
 
 const GoogleForm = ({ formId }: { formId: string }) => {
@@ -70,7 +72,7 @@ const GoogleForm = ({ formId }: { formId: string }) => {
     return (
       <div className="text-center py-8">
         <p className="text-primary-100 mb-4">Please add your Google Form URL in Sanity Studio</p>
-        <p className="text-sm text-primary-200">Go to RSVP Section → Google Form URL or ID</p>
+        <p className="text-sm text-primary-200">Go to RSVP Section â†’ Google Form URL or ID</p>
       </div>
     )
   }
@@ -104,7 +106,7 @@ const GoogleForm = ({ formId }: { formId: string }) => {
           rel="noopener noreferrer"
           className="inline-block bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-full text-sm sm:text-base transition-all duration-300 backdrop-blur-sm"
         >
-          📱 Open Form in New Tab
+          ðŸ“± Open Form in New Tab
         </a>
         <p className="text-xs sm:text-sm text-primary-200 mt-2">
           Having trouble? Try opening the form in a new tab
@@ -132,7 +134,7 @@ const TypeformEmbed = ({ typeformId }: { typeformId: string }) => {
   )
 }
 
-export default function RSVP({ rsvp }: RSVPProps) {
+export default function RSVP({ rsvp, timezone, inviteType }: RSVPProps) {
   const getColorValue = (color: any) => {
     if (typeof color === 'string') return color
     if (color && typeof color === 'object' && color.hex) return color.hex
@@ -180,7 +182,7 @@ export default function RSVP({ rsvp }: RSVPProps) {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => rsvp.contactInfo?.email && (window.location.href = `mailto:${rsvp.contactInfo.email}?subject=RSVP - Yes!&body=We're excited to celebrate with you!`)}
               >
-                ✓ Yes, I'll be there!
+                âœ“ Yes, I'll be there!
               </motion.button>
               
               <motion.button
@@ -189,7 +191,7 @@ export default function RSVP({ rsvp }: RSVPProps) {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => rsvp.contactInfo?.email && (window.location.href = `mailto:${rsvp.contactInfo.email}?subject=RSVP - Can't Make It&body=Sorry, we won't be able to attend.`)}
               >
-                ✗ Sorry, can't make it
+                âœ— Sorry, can't make it
               </motion.button>
             </div>
             

@@ -1,4 +1,4 @@
-import { createClient } from '@sanity/client'
+﻿import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
 
 export const client = createClient({
@@ -130,6 +130,24 @@ export const queries = {
       images[]
     },
     rsvp{
+      title,
+      titleFont,
+      titleColor,
+      description,
+      descriptionFont,
+      descriptionColor,
+      backgroundColor,
+      formType,
+      googleFormId,
+      formEmbed,
+      typeformId,
+      deadline,
+      contactInfo{
+        email,
+        phone
+      }
+    },
+    receptionRSVP{
       title,
       titleFont,
       titleColor,
