@@ -79,6 +79,7 @@ export interface Hero {
   overlayOpacity: number
   textColor?: SanityColor
   weddingDate: string
+  time?: string
   showCountdown: boolean
   showScrollIndicator: boolean
   scrollIndicatorStyle: 'mouse' | 'arrow' | 'chevron' | 'text'
@@ -88,6 +89,7 @@ export interface Ceremony {
   enabled: boolean
   title: string
   date: string
+  time?: string
   venue: string
   address: string
   mapEmbed?: string
@@ -111,6 +113,7 @@ export interface Venue {
   name: string
   address: string
   date: string
+  time?: string
   time: string
   mapEmbed: string
   description?: string

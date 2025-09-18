@@ -471,6 +471,14 @@ export default defineType({
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
+              name: 'time',
+              title: 'Display Time',
+              type: 'string',
+              description: 'Custom time display (e.g., "12:30 PM", "7:30 PM", "11:30 AM")',
+              placeholder: 'e.g., 12:30 PM',
+              hidden: ({parent}) => !parent?.enabled
+            }),
+            defineField({
               name: 'venue',
               title: 'Venue Name',
               type: 'string',
@@ -524,6 +532,14 @@ export default defineType({
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
+              name: 'time',
+              title: 'Display Time',
+              type: 'string',
+              description: 'Custom time display (e.g., "12:30 PM", "7:30 PM", "11:30 AM")',
+              placeholder: 'e.g., 12:30 PM',
+              hidden: ({parent}) => !parent?.enabled
+            }),
+            defineField({
               name: 'venue',
               title: 'Venue Name',
               type: 'string',
@@ -574,6 +590,14 @@ export default defineType({
               name: 'date',
               title: 'Date & Time',
               type: 'datetime',
+              hidden: ({parent}) => !parent?.enabled
+            }),
+            defineField({
+              name: 'time',
+              title: 'Display Time',
+              type: 'string',
+              description: 'Custom time display (e.g., "12:30 PM", "7:30 PM", "11:30 AM")',
+              placeholder: 'e.g., 12:30 PM',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({
@@ -659,6 +683,14 @@ export default defineType({
               name: 'date',
               title: 'Date & Time',
               type: 'datetime',
+              hidden: ({parent}) => !parent?.enabled
+            }),
+            defineField({
+              name: 'time',
+              title: 'Display Time',
+              type: 'string',
+              description: 'Custom time display (e.g., "12:30 PM", "7:30 PM", "11:30 AM")',
+              placeholder: 'e.g., 12:30 PM',
               hidden: ({parent}) => !parent?.enabled
             }),
             defineField({

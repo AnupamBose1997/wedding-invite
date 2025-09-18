@@ -12,6 +12,7 @@ interface VenueProps {
 interface TimelineEvent {
   title: string
   date: string
+  time?: string
   venue: string
   address: string
   mapEmbed?: string
@@ -136,10 +137,7 @@ export default function Venue({ venue, ceremonies, timezone = 'Asia/Kolkata' }: 
                             })}
                           </p>
                           <p>
-                            {new Date(event.date).toLocaleTimeString('en-US', {
-                              hour: 'numeric',
-                              minute: '2-digit'
-                            })}
+                            {event.time || new Date(event.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
                           </p>
                         </div>
                       </div>
