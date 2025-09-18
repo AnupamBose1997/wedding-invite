@@ -114,7 +114,6 @@ export interface Venue {
   address: string
   date: string
   time?: string
-  time: string
   mapEmbed: string
   description?: string
 }
